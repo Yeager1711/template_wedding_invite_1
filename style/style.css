@@ -144,7 +144,7 @@
 }
 .wrapper .wrapper_banner .banner_3 .couple_info .groom h3,
 .wrapper .wrapper_banner .banner_3 .couple_info .bride h3 {
-  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-size: clamp(2.5rem, 3.5vw, 3.5rem);
   font-family: "Allura", cursive;
   color: #333;
 }
@@ -175,13 +175,12 @@
 .wrapper .banner_4 .couple_images {
   display: flex;
   justify-content: space-between;
-  margin: clamp(0.5rem, 1vw, 1rem) 0;
+  margin-top: 2rem;
   gap: clamp(0.3rem, 1vw, 1rem);
   padding: 2rem 0;
 }
 .wrapper .banner_4 .couple_images .couple_img {
   width: 30%;
-  /* Chiều cao co giãn */
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.3rem, 0.5vw, 0.5rem);
@@ -191,6 +190,11 @@
 }
 .wrapper .banner_4 .couple_images .center_img {
   transform: scale(1.25) !important;
+}
+@media (min-width: 1024px) {
+  .wrapper .banner_4 .couple_images {
+    margin-top: 10rem;
+  }
 }
 .wrapper .banner_4 .infomation {
   margin: clamp(2rem, 5vw, 5rem) 0 0 0;
@@ -338,7 +342,7 @@
 }
 .wrapper .banner_4 .location h4 {
   font-family: "Allura", cursive;
-  font-size: 3rem;
+  font-size: 4rem;
   position: relative;
   text-align: center;
   background: #fff;
@@ -346,6 +350,13 @@
 }
 .wrapper .banner_4 .location .location_content {
   overflow: hidden;
+  margin: 2rem 0;
+  padding: 1rem;
+}
+.wrapper .banner_4 .location .location_content #bride-location-name,
+.wrapper .banner_4 .location .location_content #groom-location-name {
+  font-family: "Allura", cursive;
+  font-size: 2rem;
 }
 .wrapper .banner_4 .location .location_content span {
   font-size: 1.8rem;
@@ -478,5 +489,5 @@
 }
 .wrapper .banner_4 .best_regards span {
   font-family: "Dancing Script", cursive;
-  font-size: 2.5rem;
+  font-size: 2.3rem;
 }/*# sourceMappingURL=style.css.map */

@@ -154,7 +154,7 @@
                     }
 
                     h3 {
-                        font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+                        font-size: clamp(2.5rem, 3.5vw, 3.5rem);
                         font-family: "Allura", cursive;
                         color: #333;
                     }
@@ -193,14 +193,12 @@
         .couple_images {
             display: flex;
             justify-content: space-between;
-            margin: clamp(0.5rem, 1vw, 1rem) 0;
+            margin-top: 2rem; // giá trị mặc định cho mobile/tablet
             gap: clamp(0.3rem, 1vw, 1rem);
             padding: 2rem 0;
 
             .couple_img {
                 width: min(30%, 42%);
-                // height: clamp(120px, 18vh, 200px);
-                /* Chiều cao co giãn */
                 object-fit: cover;
                 border-radius: clamp(0.3rem, 0.5vw, 0.5rem);
                 transform: scale(0.9);
@@ -211,7 +209,13 @@
             .center_img {
                 transform: scale(1.25) !important;
             }
+
+            @media (min-width: 1024px) {
+                margin-top: 10rem;
+            }
         }
+
+
 
         .infomation {
             margin: clamp(2rem, 5vw, 5rem) 0 0 0;
@@ -380,10 +384,9 @@
             text-align: center;
             position: relative;
 
-
             h4 {
                 font-family: "Allura", cursive;
-                font-size: 3rem; // Giữ cố định 3rem như yêu cầu
+                font-size: 4rem; // Giữ cố định 3rem như yêu cầu
                 position: relative;
                 text-align: center;
                 background: #fff;
@@ -392,6 +395,14 @@
 
             .location_content {
                 overflow: hidden;
+                margin: 2rem 0; // Thêm khoảng cách giữa hai địa điểm
+                padding: 1rem;
+
+                #bride-location-name,
+                #groom-location-name {
+                font-family: "Allura", cursive;
+                    font-size: 2rem;
+                }
 
                 span {
                     font-size: 1.8rem;
@@ -410,7 +421,15 @@
                 }
             }
 
+            // Tùy chỉnh để phân biệt nhà trai và nhà gái (nếu cần)
+            .location_content:nth-child(2n + 1) {
+                // Quy tắc cho khối đầu tiên (nhà trai)
+            }
 
+            .location_content:nth-child(2n + 2) {
+                // Quy tắc cho khối thứ hai (nhà gái), ví dụ: thêm viền hoặc màu nền khác
+                // border: 0.1rem solid #ddd; // Tùy chọn
+            }
         }
 
         .thumnail {
@@ -554,16 +573,16 @@
 
             h1 {
                 font-size: 3rem;
-               
 
-                
+
+
 
                 font-family: "Allura", cursive;
             }
 
             span {
                 font-family: "Dancing Script", cursive;
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
         }
     }

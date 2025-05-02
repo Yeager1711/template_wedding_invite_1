@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
     <link rel="stylesheet" href="./style/global.css">
-    <link rel="stylesheet" href="./style//style.css">
+    <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
@@ -96,19 +96,19 @@
             <div class="location" data-aos="fade-up" data-aos-duration="1000">
                 <div class="dot_left"></div>
                 <div class="dot_right"></div>
-
                 <h4>Địa điểm tổ chức</h4>
                 <div class="location_content">
-                    <span>Tòa nhà Saigon Intela</span>
-
-                    <p>
-                        KDC 13E, Đô thị mới Nam Thành Phố, Ấp 5, Bình Chánh, Hồ Chí Minh, Việt Nam
-                    </p>
-
-                    <iframe id="map-embed" style="border:0;" allowfullscreen="" loading="lazy"
+                    <h5 id="groom-location-name"></h5>
+                    <p id="groom-location-address"></p>
+                    <iframe id="groom-map-embed" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-
+                <div class="location_content">
+                    <h5 id="bride-location-name"></h5>
+                    <p id="bride-location-address"></p>
+                    <iframe id="bride-map-embed" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
 
             <div class="thumnail" data-aos="fade-up" data-aos-duration="1000">
@@ -116,7 +116,6 @@
                 <div class="dot_right"></div>
                 <h4>Khoảnh khắc đáng nhớ</h4>
                 <div class="thumnail_images" id="thumnail-images">
-
                 </div>
             </div>
 
@@ -124,7 +123,8 @@
                 <div class="dot_left"></div>
                 <div class="dot_right"></div>
                 <h1>Thanks You</h1>
-                <span>Rất hân hạnh được đón tiếp</span>
+                <span>Sự hiện diện của bạn là niềm vinh hạnh </span>
+                <span style="display: block;">của chúng tôi</span>
             </div>
         </div>
     </div>
@@ -209,8 +209,14 @@
             calendarBody.appendChild(span);
         });
 
-        // Thêm URL nhúng Google Maps
-        document.getElementById('map-embed').src = weddingData.location.mapEmbedUrl;
+        // Thêm thông tin địa điểm nhà trai và nhà gái
+        document.getElementById('groom-location-name').textContent = weddingData.location.groomLocation.name;
+        document.getElementById('groom-location-address').textContent = weddingData.location.groomLocation.address;
+        document.getElementById('groom-map-embed').src = weddingData.location.groomLocation.mapEmbedUrl;
+
+        document.getElementById('bride-location-name').textContent = weddingData.location.brideLocation.name;
+        document.getElementById('bride-location-address').textContent = weddingData.location.brideLocation.address;
+        document.getElementById('bride-map-embed').src = weddingData.location.brideLocation.mapEmbedUrl;
 
         // Xử lý sự kiện click để thay đổi center_img
         const coupleImages = document.querySelectorAll('.couple_images .couple_img');
