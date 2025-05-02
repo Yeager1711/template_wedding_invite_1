@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+    <section class="banner_image__header" data-aos="fade-up" data-aos-duration="1000">
+        <img id="banner-image" src="" alt="Wedding Banner">
+        <div class="content_header">
+            <h3 id="couple-names"></h3>
+        </div>
+        <div class="infomation">
+            <h2 id="invitation-title"></h2>
+            <div class="date_time">
+                <span id="day-time"></span>
+                <div class="day" id="date"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wrapper">
+        <div class="wrapper_banner">
+            <div class="banner_2" data-aos="fade-up" data-aos-duration="1200">
+                <div class="love_quote">
+                    <h2 id="love-quote"></h2>
+                    <h2 id="love-quote_2"></h2>
+                </div>
+                <div class="family_info">
+                    <div class="groom_family" data-aos="fade-right" data-aos-delay="200">
+                        <h3 id="groom-family-title"></h3>
+                        <p id="groom-family-father"></p>
+                        <p id="groom-family-mother"></p>
+                    </div>
+                    <div class="bride_family" data-aos="fade-left" data-aos-delay="200">
+                        <h3 id="bride-family-title"></h3>
+                        <p id="bride-family-father"></p>
+                        <p id="bride-family-mother"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="banner_3" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="couple_info">
+                    <div class="groom" data-aos="fade-right" data-aos-delay="300">
+                        <img id="groom-image" src="" alt="Groom">
+                        <h3 id="groom-name"></h3>
+                    </div>
+                    <div class="bride" data-aos="fade-left" data-aos-delay="300">
+                        <img id="bride-image" src="" alt="Bride">
+                        <h3 id="bride-name"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner_4" data-aos="fade-up" data-aos-duration="1000">
+            <div class="content_header">
+                <h2 class="invitation_title" id="invitation-title-2"></h2>
+                <h3 class="event_title" id="invitation-subtitle"></h3>
+            </div>
+            <div class="couple_images" id="couple-images">
+                <!-- Dữ liệu ảnh sẽ được thêm động bằng JS -->
+            </div>
+            <div class="infomation" data-aos="fade-up" data-aos-duration="1200">
+                <p class="event_details" id="event-details"></p>
+                <p class="event_time">Vào Lúc</p>
+                <div class="date_container">
+                    <span class="time" id="event-time"></span>
+                    <div class="column">
+                        <span class="dayOfWeek" id="event-dayOfWeek"></span>
+                        <span class="day" id="event-day"></span>
+                        <span class="month" id="event-month"></span>
+                    </div>
+                    <span class="year" id="event-year"></span>
+                </div>
+                <p class="lunar_date" id="lunar-date"></p>
+                <h2 class="month_year" id="month-year"></h2>
+            </div>
+            <div class="calendar" data-aos="zoom-in" data-aos-duration="1000">
+                <h3 id="calendar-month"></h3>
+                <div class="calendar_header">
+                    <span>CN</span><span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span>
+                </div>
+                <div class="calendar_body" id="calendar-body">
+                    <!-- Dữ liệu lịch sẽ được thêm động bằng JS -->
+                </div>
+            </div>
+
+            <div class="location" data-aos="fade-up" data-aos-duration="1000">
+                <div class="dot_left"></div>
+                <div class="dot_right"></div>
+
+                <h4>Địa điểm tổ chức</h4>
+                <div class="location_content">
+                    <span>Tòa nhà Saigon Intela</span>
+
+                    <p>
+                        KDC 13E, Đô thị mới Nam Thành Phố, Ấp 5, Bình Chánh, Hồ Chí Minh, Việt Nam
+                    </p>
+
+                    <iframe id="map-embed" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+            </div>
+
+            <div class="thumnail" data-aos="fade-up" data-aos-duration="1000">
+                <div class="dot_left"></div>
+                <div class="dot_right"></div>
+                <h4>Khoảnh khắc đáng nhớ</h4>
+                <div class="thumnail_images" id="thumnail-images">
+
+                </div>
+            </div>
+
+            <div class="best_regards">
+                <div class="dot_left"></div>
+                <div class="dot_right"></div>
+                <h1>Thanks You</h1>
+                <span>Rất hân hạnh được đón tiếp</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nạp dữ liệu và AOS -->
+    <script type="module">
+        // Import dữ liệu từ data.js
+        import weddingData from './data.js';
+
+        // Cập nhật dữ liệu vào HTML
+        document.getElementById('banner-image').src = weddingData.banner.image;
+        document.getElementById('couple-names').textContent = weddingData.couple.names;
+        document.getElementById('invitation-title').textContent = weddingData.invitation.title;
+        document.getElementById('day-time').textContent = `${weddingData.invitation.dayOfWeek} - ${weddingData.invitation.time}`;
+        document.getElementById('date').textContent = `${weddingData.invitation.day}.${weddingData.invitation.month.replace('Tháng ', '')}.${weddingData.invitation.year}`;
+
+        document.getElementById('love-quote').textContent = `"${weddingData.loveQuote_1}"`;
+        document.getElementById('love-quote_2').textContent = `"${weddingData.loveQuote_2}"`;
+
+        document.getElementById('groom-family-title').textContent = weddingData.familyInfo.groomFamily.title;
+        document.getElementById('groom-family-father').textContent = `Ông: ${weddingData.familyInfo.groomFamily.father}`;
+        document.getElementById('groom-family-mother').textContent = `Bà: ${weddingData.familyInfo.groomFamily.mother}`;
+        document.getElementById('bride-family-title').textContent = weddingData.familyInfo.brideFamily.title;
+        document.getElementById('bride-family-father').textContent = `Ông: ${weddingData.familyInfo.brideFamily.father}`;
+        document.getElementById('bride-family-mother').textContent = `Bà: ${weddingData.familyInfo.brideFamily.mother}`;
+
+        document.getElementById('groom-image').src = weddingData.couple.groom.image;
+        document.getElementById('groom-name').textContent = weddingData.couple.groom.name;
+        document.getElementById('bride-image').src = weddingData.couple.bride.image;
+        document.getElementById('bride-name').textContent = weddingData.couple.bride.name;
+
+        document.getElementById('invitation-title-2').textContent = weddingData.invitation.title;
+        document.getElementById('invitation-subtitle').textContent = weddingData.invitation.subtitle;
+        document.getElementById('event-details').textContent = weddingData.eventDetails;
+        document.getElementById('event-time').textContent = weddingData.invitation.time;
+        document.getElementById('event-dayOfWeek').textContent = weddingData.invitation.dayOfWeek;
+        document.getElementById('event-day').textContent = weddingData.invitation.day;
+        document.getElementById('event-month').textContent = weddingData.invitation.month;
+        document.getElementById('event-year').textContent = weddingData.invitation.year;
+        document.getElementById('lunar-date').textContent = `(${weddingData.invitation.lunarDate})`;
+        document.getElementById('month-year').textContent = weddingData.invitation.monthYear;
+
+        // Thêm ảnh động cho couple_images
+        const coupleImagesContainer = document.getElementById('couple-images');
+        weddingData.coupleImages.forEach((img, index) => {
+            const imgElement = document.createElement('img');
+            imgElement.src = img.src;
+            imgElement.alt = img.alt;
+            imgElement.className = `couple_img${img.isCenter ? ' center_img' : ''}`;
+            imgElement.setAttribute('data-aos', 'fade-up');
+            imgElement.setAttribute('data-aos-delay', (100 * (index + 1)).toString());
+            coupleImagesContainer.appendChild(imgElement);
+        });
+
+        // Thêm ảnh động cho thumnail_images
+        const thumnailImagesContainer = document.getElementById('thumnail-images');
+        weddingData.thumnailImages.forEach((img, index) => {
+            const imgElement = document.createElement('img');
+            imgElement.src = img.src;
+            imgElement.alt = img.alt;
+            imgElement.className = `thumnail_img${img.isCenter ? ' center_img' : ''}`;
+            imgElement.setAttribute('data-aos', 'fade-up');
+            imgElement.setAttribute('data-aos-delay', (100 * (index + 1)).toString());
+            thumnailImagesContainer.appendChild(imgElement);
+        });
+
+        // Hiển thị tiêu đề tháng
+        document.getElementById('calendar-month').textContent = weddingData.calendar.month;
+
+        // Thêm lịch động
+        const calendarBody = document.getElementById('calendar-body');
+        weddingData.calendar.days.forEach(day => {
+            const span = document.createElement('span');
+            if (day === weddingData.calendar.highlightDay) {
+                span.className = 'highlight';
+                const innerSpan = document.createElement('span');
+                innerSpan.textContent = day;
+                span.appendChild(innerSpan);
+            } else {
+                span.textContent = day;
+            }
+            calendarBody.appendChild(span);
+        });
+
+        // Thêm URL nhúng Google Maps
+        document.getElementById('map-embed').src = weddingData.location.mapEmbedUrl;
+
+        // Xử lý sự kiện click để thay đổi center_img
+        const coupleImages = document.querySelectorAll('.couple_images .couple_img');
+        coupleImages.forEach(img => {
+            img.addEventListener('click', () => {
+                coupleImages.forEach(otherImg => otherImg.classList.remove('center_img'));
+                img.classList.add('center_img');
+            });
+        });
+
+        // Xử lý sự kiện click để thay đổi center_img cho thumnail_images
+        const thumnailImages = document.querySelectorAll('.thumnail_images .thumnail_img');
+        thumnailImages.forEach(img => {
+            img.addEventListener('click', () => {
+                thumnailImages.forEach(otherImg => otherImg.classList.remove('center_img'));
+                img.classList.add('center_img');
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
